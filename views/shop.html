@@ -1,8 +1,7 @@
 <!--Repeat over your data and display it below -->
 
-<div class="product-grid__item   grid__item one-half large--one-third" >
-
-    {{post}}
+<div class="product-grid__item   grid__item one-half large--one-third" ng-repeat="(key, product) in products" >
+    <img ng-src="{{product.image}}" ui-sref="details({id: key})">
     <!--Product Image-->
     <!--Product Image click Should redirect to the product-details section. remember to pass along the product id so you can make an api call
     to get the specific product details-->
@@ -12,12 +11,14 @@
 
     <!--Product Meta-->
     <div class="product-grid__meta">
+        {{product.title}}
         <!-- Tittle-->
         <!--Title click Should redirect to the details section-->
         <h3 class="product-grid__name"><a><!--Title--></a></h3>
+        {{product.desc}}
         <!--Product Description-->
         <h4 class="product-grid__sub"><!--Desc--></h4>
-
+        {{product.price}}
         <!--Product Price-->
         <div class="product-grid__price"><!--Price--></div>
     </div>
